@@ -90,6 +90,7 @@ func (w *Watcher) Close() error {
 
 // Add starts watching the named file or directory (non-recursively).
 func (w *Watcher) Add(name string) error {
+	fmt.Println("starting to watch ", name)
 	name = filepath.Clean(name)
 	if w.isClosed() {
 		return errors.New("inotify instance already closed")
