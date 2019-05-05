@@ -31,6 +31,7 @@ type Watcher struct {
 
 // NewWatcher establishes a new watcher with the underlying OS and begins waiting for events.
 func NewWatcher() (*Watcher, error) {
+	fmt.Println("setting up new windows watcher")
 	port, e := syscall.CreateIoCompletionPort(syscall.InvalidHandle, 0, 0, 0)
 	if e != nil {
 		return nil, os.NewSyscallError("CreateIoCompletionPort", e)

@@ -34,6 +34,7 @@ type Watcher struct {
 
 // NewWatcher establishes a new watcher with the underlying OS and begins waiting for events.
 func NewWatcher() (*Watcher, error) {
+	fmt.Println("setting up new linux watcher")
 	// Create inotify fd
 	fd, errno := unix.InotifyInit1(unix.IN_CLOEXEC)
 	if fd == -1 {
