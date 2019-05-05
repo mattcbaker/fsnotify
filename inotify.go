@@ -317,6 +317,7 @@ func (e *Event) ignoreLinux(mask uint32) bool {
 
 // newEvent returns an platform-independent Event based on an inotify mask.
 func newEvent(name string, mask uint32) Event {
+	fmt.Println("hey look, an event occured ", name)
 	e := Event{Name: name}
 	if mask&unix.IN_CREATE == unix.IN_CREATE || mask&unix.IN_MOVED_TO == unix.IN_MOVED_TO {
 		e.Op |= Create
