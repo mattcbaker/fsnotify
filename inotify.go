@@ -126,6 +126,7 @@ func (w *Watcher) Add(name string) error {
 
 // Remove stops watching the named file or directory (non-recursively).
 func (w *Watcher) Remove(name string) error {
+	fmt.Println("removing watcher for ", name)
 	name = filepath.Clean(name)
 
 	// Fetch the watch.
@@ -172,6 +173,7 @@ type watch struct {
 // readEvents reads from the inotify file descriptor, converts the
 // received events into Event objects and sends them via the Events channel
 func (w *Watcher) readEvents() {
+	fmt.Println("starting readEvents function")
 	var (
 		buf   [unix.SizeofInotifyEvent * 4096]byte // Buffer for a maximum of 4096 raw events
 		n     int                                  // Number of bytes read with read()
