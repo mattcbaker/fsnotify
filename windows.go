@@ -120,7 +120,7 @@ const (
 )
 
 func newEvent(name string, mask uint32) Event {
-	fmt.Println("look, an event occured: %s", name)
+	fmt.Println("look, an event occured ", name)
 	e := Event{Name: name}
 	if mask&sysFSCREATE == sysFSCREATE || mask&sysFSMOVEDTO == sysFSMOVEDTO {
 		e.Op |= Create
