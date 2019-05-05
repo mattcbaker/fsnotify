@@ -280,6 +280,7 @@ func (w *Watcher) readEvents() {
 			event := newEvent(name, mask)
 
 			// Send the events that are not ignored on the events channel
+			fmt.Println("hey look, we're right here")
 			if !event.ignoreLinux(mask) {
 				select {
 				case w.Events <- event:
